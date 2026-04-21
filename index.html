@@ -1,0 +1,315 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Курсовая</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="b_0"></div>
+        <div class="b_1"></div>
+        <div class="head_top">
+            <div class="head_top-left">
+                <div class="menu"><img src="./photo/menu.png" class="img_menu" onclick="togglemenu(true)"></div>
+                <div id="darkfon" class="darkfon" onclick="togglemenu(false)"></div>
+                <div id="menu" class="panel">
+                    <span class="close_but" onclick="togglemenu(false)">&times;</span>
+                    <a href="poisk.html" onclick="kup_but(); if(window.location.pathname.indexOf('poisk.html')!==-1) return false;">Покупка</a>
+                    <a href="poisk.html" onclick="snat_but(); if(window.location.pathname.indexOf('poisk.html')!==-1) return false;">Аренда</a>
+                    <a href="poisk.html" onclick="kvar_but(); if(window.location.pathname.indexOf('poisk.html')!==-1) return false;">Квартиры</a>
+                    <a href="poisk.html" onclick="stud_but(); if(window.location.pathname.indexOf('poisk.html')!==-1) return false;">Студии</a>
+                </div>
+                <div class="head_top_logo"><a href="index.html"><img src="./photo/logo.png" class="fotologo"></a></div>
+                <div class="box box_city" onclick="city_but()">
+                    <div class="img"><img src="./photo/geo.png" class="fotocity"></div>
+                    <div class="p p_city">
+                        <span class="span_city">Город</span>
+                    </div>
+                    <div class="city_group">
+                        <div class="kras" onclick="kras()">Краснодар</div>
+                        <div class="mosc" onclick="mosc()">Москва</div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="img"><img src="./photo/help.png" class="fotohelp"></div>
+                    <div class="p"><a href="help.html">Помощь</a></div>
+                </div>
+            </div>
+            <div class="umn"></div>
+            <div class="head_top-right">
+                <div class="login" onclick="login1()">
+                    <div class="logout">
+                        <img src="./photo/exit.png" class="fotologout">
+                        <span class="logout_span"> Войти</span>
+                        <span class="login_login" onclick="lk()"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="account">
+                    <div class="account_login">
+                        <div class="login_head">
+                            <h2 class="h_login">Вход</h2>
+                            <div>
+                                <button class="ru_but" onclick="ru()">Ru</button>
+                                <button class="eu_but" onclick="eu()">Eu</button>
+                            </div>
+                        </div>
+                        <input type="text" placeholder="Логин" class="log_input_login">
+                        <input type="password" placeholder="Пароль" class="log_input_pass">
+                        <div class="log-reg">
+                            <button class="but_vxod" onclick="login()">Войти</button>
+                            <a href="" class="log-reg_registr"  onclick="reg(); return false;">зарегестрироваться</a>
+                        </div>
+                    </div>
+                    <div class="account_registr">
+                        <div class="reg_head">
+                            <h2 class="h_reg">Регистрация</h2>
+                            <div>
+                                <button class="ru_but" onclick="ru()">Ru</button>
+                                <button class="eu_but" onclick="eu()">Eu</button>
+                            </div>
+                        </div>
+                        <input type="text" placeholder="Создайте логин" class="reg_input_login">
+                        <input type="password" placeholder="Придумайте пароль" class="reg_input_pass">
+                        <input type="text" placeholder="Введите номер телефона" class="reg_input_phone">
+                        <input type="email" name="" id="" placeholder="Введите почту" class="reg_input_email">
+                        <div class="log-reg">
+                            <button class="but_reg" onclick="registr()">Зарегестрироваться</button>
+                            <a href="" class="log-reg_login"  onclick="log(); return false;">есть аккаунт? Войти</a>
+                        </div>
+                    </div>
+                </div>
+        <div class="head_bot">
+            <div class="logo"><a href="index.html"><img src="./photo/logo.png" class="fotologo"></a></div>
+            <div class="speed">
+                <div class="buy"><a href="poisk.html" onclick="kup_but(); if(window.location.pathname.indexOf('poisk.html')!==-1) return false;">Покупка</a></div>
+                <div class="arenda"><a href="poisk.html" onclick="snat_but(); if(window.location.pathname.indexOf('poisk.html')!==-1) return false;">Аренда</a></div>
+                <div class="new"><a href="poisk.html" onclick="kvar_but(); if(window.location.pathname.indexOf('poisk.html')!==-1) return false;">Квартиры</a></div>
+                <div class="new"><a href="poisk.html" onclick="stud_but(); if(window.location.pathname.indexOf('poisk.html')!==-1) return false;">Студии</a></div>
+            </div>
+        </div>
+        <div class="b_3"></div>
+        <div class="b_4"></div>
+    </header>
+    <main>
+        <div class="poisk">
+            <div class="poisk_ned">Поиск недвижимости</div>
+            <div class="history"></div>
+            <div class="stroke">
+                <span class="search_icon">🔍</span>
+                <input type="text" class="stroke_input" placeholder="Поиск по городу...">
+                <button class="clear_but">&times;</button>
+            </div>
+            <div class="filter"><img src="./photo/icons-filter.png" class="filter_image" onclick="filter1()"></div>
+            <div class="win_filter">
+                <div class="filter_card">
+                    <div class="head_group">
+                        <div class="all_filter">Все фильтры</div>
+                        <div class="reset_filter">Сбросить</div>
+                    </div>
+                    <div class="kup_snat">
+                        <div class="kup"  onclick="kup()">Купить</div>
+                        <div class="snat"  onclick="snat()">Снять</div>
+                    </div>
+                   <div class="rooms">
+                        <div class="room">Выберите тип</div>
+                    </div>
+                    <div class="rooms_group">
+                        <div class="studia"><input type="checkbox" name="" id="" class="input_box">Студия</div>
+                        <div class="rum"><input type="checkbox" name="" id="" class="input_box">Квартира</div>
+                    </div>
+                    <div class="price">Цена, ₽</div>
+                    <div class="price_group">
+                        <input type="text" name="" id="" placeholder="От" class="input_sell1">
+                        <button class="clear_price1">&times;</button>
+                        <input type="text" name="" id="" placeholder="до" class="input_sell2">
+                        <button class="clear_price2">&times;</button>
+                    </div>
+                    <div class="look"><button class="look_but" onclick="look_but()">Смотреть</button></div>
+                </div>
+            </div>
+            <div class="find"><button class="find_but" onclick="send()">Найти</button></div>
+        </div>
+        <div class="recommendations">
+            <h1 class="mbu">Может быть полезно</h2>
+            <div class="recom">
+                <div class="card" id="id_kras" data-photos="./photo/fhotocard/1/1.webp,./photo/fhotocard/1/2.webp,./photo/fhotocard/1/3.webp,./photo/fhotocard/1/4.webp">
+                    <div class="card_top card_kup"><img src="./photo/fhotocard/1/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Квартира</div>
+                        <div class="t2">Краснодар</div>
+                        <div class="t3">5 700 000 ₽</div>
+                    </div>
+                </div>
+                <div class="card" id="id_kras" data-photos="./photo/fhotocard/2/1.webp,./photo/fhotocard/2/2.webp,./photo/fhotocard/2/3.webp,./photo/fhotocard/2/4.webp">
+                    <div class="card_top card_kup"><img src="./photo/fhotocard/2/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Квартира</div>
+                        <div class="t2">Краснодар</div>
+                        <div class="t3">6 990 000 ₽</div>
+                    </div>
+                </div>
+                <div class="card" id="id_kras" data-photos="./photo/fhotocard/7/1.webp,./photo/fhotocard/7/2.webp,./photo/fhotocard/7/3.webp,./photo/fhotocard/7/4.webp">
+                    <div class="card_top card_kup"><img src="./photo/fhotocard/7/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Квартира</div>
+                        <div class="t2">Краснодар</div>
+                        <div class="t3">13 900 000 ₽</div>
+                    </div>
+                </div>
+                <div class="card" id="id_kras" data-photos="./photo/fhotocard/8/1.webp,./photo/fhotocard/8/2.webp,./photo/fhotocard/8/3.webp,./photo/fhotocard/8/4.webp">
+                    <div class="card_top card_kup"><img src="./photo/fhotocard/8/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Квартира</div>
+                        <div class="t2">Краснодар</div>
+                        <div class="t3">4 730 000 ₽</div>
+                    </div>
+                </div>
+                <div class="card" id="id_kras" data-photos="./photo/fhotocard/3/1.webp,./photo/fhotocard/3/2.webp,./photo/fhotocard/3/3.webp,./photo/fhotocard/3/4.webp">
+                    <div class="card_top card_kup"><img src="./photo/fhotocard/3/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Квартира</div>
+                        <div class="t2">Краснодар</div>
+                        <div class="t3">32 000 ₽/мес.</div>
+                    </div>
+                </div>
+                <div class="card" id="id_kras" data-photos="./photo/fhotocard/4/1.webp,./photo/fhotocard/4/2.webp,./photo/fhotocard/4/3.webp,./photo/fhotocard/4/4.webp">
+                    <div class="card_top card_kup"><img src="./photo/fhotocard/4/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Квартира</div>
+                        <div class="t2">Краснодар</div>
+                        <div class="t3">29 000 ₽/мес.</div>
+                    </div>
+                </div>
+                <div class="card" id="id_kras" data-photos="./photo/fhotocard/28/1.webp,./photo/fhotocard/28/2.webp,./photo/fhotocard/28/3.webp,./photo/fhotocard/28/4.webp">
+                    <div class="card_top"><img src="./photo/fhotocard/28/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Студия</div>
+                        <div class="t2">Краснодар</div>
+                        <div class="t3">24 000 ₽/мес.</div>
+                    </div>
+                </div>
+                <div class="card" id="id_kras" data-photos="./photo/fhotocard/29/1.webp,./photo/fhotocard/29/2.webp,./photo/fhotocard/29/3.webp,./photo/fhotocard/29/4.webp">
+                    <div class="card_top"><img src="./photo/fhotocard/29/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Студия</div>
+                        <div class="t2">Краснодар</div>
+                        <div class="t3">23 000 ₽/мес.</div>
+                    </div>
+                </div>
+                <div class="card" id="id_mosc" data-photos="./photo/fhotocard/30/1.webp,./photo/fhotocard/30/2.webp,./photo/fhotocard/30/3.webp,./photo/fhotocard/30/4.webp">
+                    <div class="card_top"><img src="./photo/fhotocard/30/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Квартира</div>
+                        <div class="t2">Москва</div>
+                        <div class="t3">12 999 000 ₽</div>
+                    </div>
+                </div>
+                <div class="card" id="id_mosc" data-photos="./photo/fhotocard/31/1.webp,./photo/fhotocard/31/2.webp,./photo/fhotocard/31/3.webp,./photo/fhotocard/31/4.webp">
+                    <div class="card_top"><img src="./photo/fhotocard/31/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Квартира</div>
+                        <div class="t2">Москва</div>
+                        <div class="t3">8 900 000 ₽</div>
+                    </div>
+                </div>
+                <div class="card" id="id_mosc" data-photos="./photo/fhotocard/32/1.webp,./photo/fhotocard/32/2.webp,./photo/fhotocard/32/3.webp,./photo/fhotocard/32/4.webp">
+                    <div class="card_top"><img src="./photo/fhotocard/32/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Квартира</div>
+                        <div class="t2">Москва</div>
+                        <div class="t3">14 200 000 ₽</div>
+                    </div>
+                </div>
+                <div class="card" id="id_mosc" data-photos="./photo/fhotocard/33/1.webp,./photo/fhotocard/33/2.webp,./photo/fhotocard/33/3.webp,./photo/fhotocard/33/4.webp">
+                    <div class="card_top"><img src="./photo/fhotocard/33/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Квартира</div>
+                        <div class="t2">Москва</div>
+                        <div class="t3">6 174 000 ₽</div>
+                    </div>
+                </div>
+                <div class="card" id="id_mosc" data-photos="./photo/fhotocard/38/1.webp,./photo/fhotocard/38/2.webp,./photo/fhotocard/38/3.webp,./photo/fhotocard/38/4.webp">
+                    <div class="card_top"><img src="./photo/fhotocard/38/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Квартира</div>
+                        <div class="t2">Москва</div>
+                        <div class="t3">57 750 ₽/мес.</div>
+                    </div>
+                </div>
+                <div class="card" id="id_mosc" data-photos="./photo/fhotocard/39/1.webp,./photo/fhotocard/39/2.webp,./photo/fhotocard/39/3.webp,./photo/fhotocard/39/4.webp">
+                    <div class="card_top"><img src="./photo/fhotocard/39/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Квартира</div>
+                        <div class="t2">Москва</div>
+                        <div class="t3">210 000 ₽/мес.</div>
+                    </div>
+                </div>
+                <div class="card" id="id_mosc" data-photos="./photo/fhotocard/25/1.webp,./photo/fhotocard/25/2.webp,./photo/fhotocard/25/3.webp,./photo/fhotocard/25/4.webp">
+                    <div class="card_top"><img src="./photo/fhotocard/25/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Студия</div>
+                        <div class="t2">Москва</div>
+                        <div class="t3">90 000 ₽/мес.</div>
+                    </div>
+                </div>
+                <div class="card" id="id_mosc" data-photos="./photo/fhotocard/13/1.webp,./photo/fhotocard/13/2.webp,./photo/fhotocard/13/3.webp,./photo/fhotocard/13/4.webp">
+                    <div class="card_top card_snat"><img src="./photo/fhotocard/13/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Студия</div>
+                        <div class="t2">Москва</div>
+                        <div class="t3">150 000 ₽/мес.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer_top">
+            <div class="footer_top_content">
+                <div class="vizitka">
+                    <div class="vizitka_image"><img src="./photo/logo.png" class="foot_logo"></div>
+                    <div class="vizitka_text">
+                            <span class="zag">ПИПН - ваш эксперт в недвижимости.</span>
+                            Профессиональное сопровождение сделок любой сложности. 
+                            Работаем на результат с гарантией юридической чистоты.
+                    </div>
+                </div>
+                <div class="zero"></div>
+                <div class="services">
+                    <h4>Услуги</h4>
+                    <ul>
+                        <li><a href="poisk.html" onclick="kup_but(); if(window.location.pathname.indexOf('poisk.html')!==-1) return false;">Покупка</a></li>
+                        <li><a href="poisk.html" onclick="snat_but(); if(window.location.pathname.indexOf('poisk.html')!==-1) return false;">Аренда</a></li>
+                        <li><a href="poisk.html" onclick="kvar_but(); if(window.location.pathname.indexOf('poisk.html')!==-1) return false;">Квартира</a></li>
+                        <li><a href="poisk.html" onclick="stud_but(); if(window.location.pathname.indexOf('poisk.html')!==-1) return false;">Студия</a></li>
+                    </ul>
+                </div>
+                <div class="zero"></div>
+                <div class="contacts">
+                    <h4>Контакты</h4>
+                    <p>📞 8 (800) 123-45-67</p>
+                    <p>📧 pipn@mail.ru</p>
+                    <p>📍 ул. Лесная, 42, офис 12</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer_bot">
+            <div class="footer_bot_content">
+                <div>
+                    <p>&copy; 2025 Курсовая работа. Все права защищены.</p>
+                    <div class="soc">
+                        <img src="./photo/vk.png" class="foot_image">
+                        <img src="./photo/tg.png" class="foot_image">
+                        <img src="./photo/watsap.png" class="foot_image">
+                        <img src="./photo/odnoklassniki.png" class="foot_image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="script.js"></script>
+</html>

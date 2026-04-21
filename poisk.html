@@ -1,0 +1,571 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Курсовая</title>
+    <link rel="stylesheet" href="poisk.css">
+</head>
+<body>
+    <header>
+        <div class="b_0"></div>
+        <div class="b_1"></div>
+        <div class="head_top">
+            <div class="head_top-left">
+                <div class="menu"><img src="./photo/menu.png" class="img_menu" onclick="togglemenu(true)"></div>
+                <div id="darkfon" class="darkfon" onclick="togglemenu(false)"></div>
+                <div id="menu" class="panel">
+                    <span class="close_but" onclick="togglemenu(false)">&times;</span>
+                    <a href="poisk.html" onclick="kup_but(); if(window.location.pathname.indexOf('poisk.html')!==-1) return false;">Покупка</a>
+                    <a href="poisk.html" onclick="snat_but(); if(window.location.pathname.indexOf('poisk.html')!==-1) return false;">Аренда</a>
+                    <a href="poisk.html" onclick="kvar_but(); if(window.location.pathname.indexOf('poisk.html')!==-1) return false;">Квартиры</a>
+                    <a href="poisk.html" onclick="stud_but(); if(window.location.pathname.indexOf('poisk.html')!==-1) return false;">Студии</a>
+                </div>
+                <div class="head_top_logo"><a href="index.html"><img src="./photo/logo.png" class="fotologo"></a></div>
+                <div class="box box_city" onclick="city_but()">
+                    <div class="img"><img src="./photo/geo.png" class="fotocity"></div>
+                    <div class="p p_city">
+                        <span class="span_city">Город</span>
+                    </div>
+                    <div class="city_group">
+                        <div class="kras" onclick="kras()">Краснодар</div>
+                        <div class="mosc" onclick="mosc()">Москва</div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="img"><img src="./photo/help.png" class="fotohelp"></div>
+                    <div class="p"><a href="help.html">Помощь</a></div>
+                </div>
+            </div>
+            <div class="umn"></div>
+            <div class="head_top-right">
+                <div class="login" onclick="login1()">
+                    <div class="logout">
+                        <img src="./photo/exit.png" class="fotologout">
+                        <span class="logout_span">Войти</span>
+                        <span class="login_login" onclick="lk()"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="account">
+                    <div class="account_login">
+                        <div class="login_head">
+                            <h2 class="h_login">Вход</h2>
+                            <div>
+                                <button class="ru_but" onclick="ru()">Ru</button>
+                                <button class="eu_but" onclick="eu()">Eu</button>
+                            </div>
+                        </div>
+                        <input type="text" placeholder="Логин" class="log_input_login">
+                        <input type="password" placeholder="Пароль" class="log_input_pass">
+                        <div class="log-reg">
+                            <button class="but_vxod" onclick="login()">Войти</button>
+                            <a href="" class="log-reg_registr"  onclick="reg(); return false;">зарегестрироваться</a>
+                        </div>
+                    </div>
+                    <div class="account_registr">
+                        <div class="reg_head">
+                            <h2 class="h_reg">Регистрация</h2>
+                            <div>
+                                <button class="ru_but" onclick="ru()">Ru</button>
+                                <button class="eu_but" onclick="eu()">Eu</button>
+                            </div>
+                        </div>
+                        <input type="text" placeholder="Создайте логин" class="reg_input_login">
+                        <input type="password" placeholder="Придумайте пароль" class="reg_input_pass">
+                        <input type="text" placeholder="Введите номер телефона" class="reg_input_phone">
+                        <input type="email" name="" id="" placeholder="Введите почту" class="reg_input_email">
+                        <div class="log-reg">
+                            <button class="but_reg" onclick="registr()">Зарегестрироваться</button>
+                            <a href="" class="log-reg_login"  onclick="log(); return false;">есть аккаунт? Войти</a>
+                        </div>
+                    </div>
+                </div>
+        <div class="head_bot">
+            <div class="logo"><a href="index.html"><img src="./photo/logo.png" class="fotologo"></a></div>
+            <div class="speed">
+                <div class="buy"><a href="poisk.html" onclick="kup_but(); if(window.location.pathname.indexOf('poisk.html')!==-1) return false;">Покупка</a></div>
+                <div class="arenda"><a href="poisk.html" onclick="snat_but(); if(window.location.pathname.indexOf('poisk.html')!==-1) return false;">Аренда</a></div>
+                <div class="new"><a href="poisk.html" onclick="kvar_but(); if(window.location.pathname.indexOf('poisk.html')!==-1) return false;">Квартиры</a></div>
+                <div class="new"><a href="poisk.html" onclick="stud_but(); if(window.location.pathname.indexOf('poisk.html')!==-1) return false;">Студии</a></div>
+            </div>
+        </div>
+        <div class="b_3"></div>
+        <div class="b_4"></div>
+    </header>
+    <main>
+        <div class="poisk">
+            <div class="poisk_ned">Поиск недвижимости</div>
+            <div class="history"></div>
+            <div class="stroke">
+                <span class="search_icon">🔍</span>
+                <input type="text" class="stroke_input" placeholder="Поиск по городу...">
+                <button class="clear_but" onclick="clear_poisk()">&times;</button>
+            </div>
+            <div class="filter"><img src="./photo/icons-filter.png" class="filter_image" onclick="filter1()"></div>
+            <div class="win_filter">
+                <div class="filter_card">
+                    <div class="head_group">
+                        <div class="all_filter">Все фильтры</div>
+                        <div class="reset_filter" onclick="clear_all()">Сбросить</div>
+                    </div>
+                    <div class="kup_snat">
+                        <div class="kup"  onclick="kup()">Купить</div>
+                        <div class="snat"  onclick="snat()">Снять</div>
+                    </div>
+                    <div class="rooms">
+                        <div class="room">Выберите тип</div>
+                    </div>
+                    <div class="rooms_group">
+                        <div class="studia"><input type="checkbox" name="" id="" class="input_box">Студия</div>
+                        <div class="rum"><input type="checkbox" name="" id="" class="input_box">Квартира</div>
+                    </div>
+                    <div class="price">Цена, ₽</div>
+                    <div class="price_group">
+                        <input type="text" name="" id="" placeholder="От" class="input_sell1">
+                        <button class="clear_price1" onclick="clear1()">&times;</button>
+                        <input type="text" name="" id="" placeholder="до" class="input_sell2">
+                        <button class="clear_price2" onclick="clear2()">&times;</button>
+                    </div>
+                    <div class="look"><button class="look_but" onclick="look_but()">Смотреть</button></div>
+                </div>
+            </div>
+            <div class="find"><button class="find_but" onclick="but_iskat()">Найти</button></div>
+        </div>
+        <div class="card_poisk">
+            <div class="not"><h1>НИЧЕГО НЕТ</h1></div>
+            <div class="cp">
+                <div class="card" id="id_mosc" data-photos="./photo/fhotocard/13/1.webp,./photo/fhotocard/13/2.webp,./photo/fhotocard/13/3.webp,./photo/fhotocard/13/4.webp">
+                    <div class="card_top card_snat"><img src="./photo/fhotocard/13/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Студия</div>
+                        <div class="t2">Москва</div>
+                        <div class="t3"><span class="sum">150 000 </span><span class="p_snat">₽/мес.</span></div>
+                    </div>
+                </div>
+                <div class="card" id="id_mosc" data-photos="./photo/fhotocard/14/1.webp,./photo/fhotocard/14/2.webp,./photo/fhotocard/14/3.webp,./photo/fhotocard/14/4.webp">
+                    <div class="card_top"><img src="./photo/fhotocard/14/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Квартира</div>
+                        <div class="t2">Москва</div>
+                        <div class="t3"><span class="sum">60 900</span><span class="p_snat">₽/мес.</span></div>
+                    </div>
+                </div>
+                <div class="card" id="id_mosc" data-photos="./photo/fhotocard/15/1.webp,./photo/fhotocard/15/2.webp,./photo/fhotocard/15/3.webp,./photo/fhotocard/15/4.webp">
+                    <div class="card_top"><img src="./photo/fhotocard/15/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Студия</div>
+                        <div class="t2">Москва</div>
+                        <div class="t3"><span class="sum">57 750</span><span class="p_snat">₽/мес.</span></div>
+                    </div>
+                </div>
+                <div class="card" id="id_kras" data-photos="./photo/fhotocard/16/1.webp,./photo/fhotocard/16/2.webp,./photo/fhotocard/16/3.webp,./photo/fhotocard/16/4.webp">
+                    <div class="card_top"><img src="./photo/fhotocard/16/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Студия</div>
+                        <div class="t2">Краснодар</div>
+                        <div class="t3"><span class="sum">37 800</span><span class="p_snat">₽/мес.</span></div>
+                    </div>
+                </div>
+                <div class="card" id="id_mosc" data-photos="./photo/fhotocard/17/1.webp,./photo/fhotocard/17/2.webp,./photo/fhotocard/17/3.webp,./photo/fhotocard/17/4.webp">
+                    <div class="card_top"><img src="./photo/fhotocard/17/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Студия</div>
+                        <div class="t2">Москва</div>
+                        <div class="t3"><span class="sum">103 000</span><span class="p_snat">₽/мес.</span></div>
+                    </div>
+                </div>
+                <div class="card" id="id_mosc" data-photos="./photo/fhotocard/18/1.webp,./photo/fhotocard/18/2.webp,./photo/fhotocard/18/3.webp,./photo/fhotocard/18/4.webp">
+                    <div class="card_top"><img src="./photo/fhotocard/18/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Студия</div>
+                        <div class="t2">Москва</div>
+                        <div class="t3"><span class="sum">64 050 </span><span class="p_snat">₽/мес.</span></div>
+                    </div>
+                </div>
+                <div class="card" id="id_mosc" data-photos="./photo/fhotocard/19/1.webp,./photo/fhotocard/19/2.webp,./photo/fhotocard/19/3.webp,./photo/fhotocard/19/4.webp">
+                    <div class="card_top"><img src="./photo/fhotocard/19/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Студия</div>
+                        <div class="t2">Москва</div>
+                        <div class="t3"><span class="sum">60 000</span> <span class="p_snat">₽/мес.</span></div>
+                    </div>
+                </div>
+                <div class="card" id="id_mosc" data-photos="./photo/fhotocard/20/1.webp,./photo/fhotocard/20/2.webp,./photo/fhotocard/20/3.webp,./photo/fhotocard/20/4.webp">
+                    <div class="card_top"><img src="./photo/fhotocard/20/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Студия</div>
+                        <div class="t2">Москва</div>
+                        <div class="t3"><span class="sum">71 990</span><span class="p_snat">₽/мес.</span></div>
+                    </div>
+                </div>
+                <div class="card" id="id_kras" data-photos="./photo/fhotocard/21/1.webp,./photo/fhotocard/21/2.webp,./photo/fhotocard/21/3.webp,./photo/fhotocard/21/4.webp">
+                    <div class="card_top"><img src="./photo/fhotocard/21/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Студия</div>
+                        <div class="t2">Краснодар</div>
+                        <div class="t3"><span class="sum">30 000</span><span class="p_snat"> ₽/мес.</span></div>
+                    </div>
+                </div>
+                <div class="card" id="id_mosc" data-photos="./photo/fhotocard/22/1.webp,./photo/fhotocard/22/2.webp,./photo/fhotocard/22/3.webp,./photo/fhotocard/22/4.webp">
+                    <div class="card_top"><img src="./photo/fhotocard/22/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Студия</div>
+                        <div class="t2">Москва</div>
+                        <div class="t3"><span class="sum">68 900</span><span class="p_snat"> ₽/мес.</span></div>
+                    </div>
+                </div>
+                <div class="card" id="id_kras" data-photos="./photo/fhotocard/23/1.webp,./photo/fhotocard/23/2.webp,./photo/fhotocard/23/3.webp,./photo/fhotocard/23/4.webp">
+                    <div class="card_top"><img src="./photo/fhotocard/23/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Студия</div>
+                        <div class="t2">Краснодар</div>
+                        <div class="t3"><span class="sum">65 000</span><span class="p_snat">₽/мес.</span></div>
+                    </div>
+                </div>
+                <div class="card" id="id_kras" data-photos="./photo/fhotocard/24/1.webp,./photo/fhotocard/24/2.webp,./photo/fhotocard/24/3.webp,./photo/fhotocard/24/4.webp">
+                    <div class="card_top"><img src="./photo/fhotocard/24/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Студия</div>
+                        <div class="t2">Краснодар</div>
+                        <div class="t3"><span class="sum">64 900</span><span class="p_snat">₽/мес.</span></div>
+                    </div>
+                </div>
+                <div class="card" id="id_mosc" data-photos="./photo/fhotocard/25/1.webp,./photo/fhotocard/25/2.webp,./photo/fhotocard/25/3.webp,./photo/fhotocard/25/4.webp">
+                    <div class="card_top"><img src="./photo/fhotocard/25/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Студия</div>
+                        <div class="t2">Москва</div>
+                        <div class="t3"><span class="sum">90 000</span><span class="p_snat">₽/мес.</span></div>
+                    </div>
+                </div>
+                <div class="card" id="id_kras" data-photos="./photo/fhotocard/26/1.webp,./photo/fhotocard/26/2.webp,./photo/fhotocard/26/3.webp,./photo/fhotocard/26/4.webp">
+                    <div class="card_top"><img src="./photo/fhotocard/26/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Студия</div>
+                        <div class="t2">Краснодар</div>
+                        <div class="t3"><span class="sum">18 000</span><span class="p_snat">₽/мес.</span></div>
+                    </div>
+                </div>
+                <div class="card" id="id_kras" data-photos="./photo/fhotocard/27/1.webp,./photo/fhotocard/27/2.webp,./photo/fhotocard/27/3.webp,./photo/fhotocard/27/4.webp">
+                    <div class="card_top"><img src="./photo/fhotocard/27/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Студия</div>
+                        <div class="t2">Краснодар</div>
+                        <div class="t3"><span class="sum">18 000</span><span class="p_snat">₽/мес.</span></div>
+                    </div>
+                </div>
+                <div class="card" id="id_kras" data-photos="./photo/fhotocard/28/1.webp,./photo/fhotocard/28/2.webp,./photo/fhotocard/28/3.webp,./photo/fhotocard/28/4.webp">
+                    <div class="card_top"><img src="./photo/fhotocard/28/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Студия</div>
+                        <div class="t2">Краснодар</div>
+                        <div class="t3"><spam class="sum">24 000</spam><span class="p_snat">₽/мес.</span></div>
+                    </div>
+                </div>
+                <div class="card card_main" id="id_kras" data-photos="./photo/fhotocard/29/1.webp,./photo/fhotocard/29/2.webp,./photo/fhotocard/29/3.webp,./photo/fhotocard/29/4.webp">
+                    <div class="card_top"><img src="./photo/fhotocard/29/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Студия</div>
+                        <div class="t2">Краснодар</div>
+                        <div class="t3"><span class="sum">23 000</span><span class="p_snat">₽/мес.</span></div>
+                    </div>
+                </div>
+                <div class="card card_main" id="id_mosc" data-photos="./photo/fhotocard/30/1.webp,./photo/fhotocard/30/2.webp,./photo/fhotocard/30/3.webp,./photo/fhotocard/30/4.webp">
+                    <div class="card_top"><img src="./photo/fhotocard/30/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Квартира</div>
+                        <div class="t2">Москва</div>
+                        <div class="t3"><span class="sum">12 999 000 </span><span class="p_kup">₽</span></div>
+                    </div>
+                </div>
+                <div class="card card_main" id="id_mosc" data-photos="./photo/fhotocard/31/1.webp,./photo/fhotocard/31/2.webp,./photo/fhotocard/31/3.webp,./photo/fhotocard/31/4.webp">
+                    <div class="card_top"><img src="./photo/fhotocard/31/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Квартира</div>
+                        <div class="t2">Москва</div>
+                        <div class="t3"><span class="sum">8 900 000</span> <span class="p_kup">₽</span></div>
+                    </div>
+                </div>
+                <div class="card card_main" id="id_mosc" data-photos="./photo/fhotocard/32/1.webp,./photo/fhotocard/32/2.webp,./photo/fhotocard/32/3.webp,./photo/fhotocard/32/4.webp">
+                    <div class="card_top"><img src="./photo/fhotocard/32/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Квартира</div>
+                        <div class="t2">Москва</div>
+                        <div class="t3"><span class="sum">14 200 000</span><span class="p_kup">₽</span></div>
+                    </div>
+                </div>
+                <div class="card card_main" id="id_mosc" data-photos="./photo/fhotocard/33/1.webp,./photo/fhotocard/33/2.webp,./photo/fhotocard/33/3.webp,./photo/fhotocard/33/4.webp">
+                    <div class="card_top"><img src="./photo/fhotocard/33/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Квартира</div>
+                        <div class="t2">Москва</div>
+                        <div class="t3"><span class="sum">6 174 000</span><span class="p_kup">₽</span></div>
+                    </div>
+                </div>
+                <div class="card card_main" id="id_mosc" data-photos="./photo/fhotocard/34/1.webp,./photo/fhotocard/34/2.webp,./photo/fhotocard/34/3.webp,./photo/fhotocard/34/4.webp">
+                    <div class="card_top"><img src="./photo/fhotocard/34/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Квартира</div>
+                        <div class="t2">Москва</div>
+                        <div class="t3"><span class="sum">5 733 000</span><span class="p_kup">₽</span></div>
+                    </div>
+                </div>
+                <div class="card card_main" id="id_mosc" data-photos="./photo/fhotocard/35/1.webp,./photo/fhotocard/35/2.webp,./photo/fhotocard/35/3.webp,./photo/fhotocard/35/4.webp">
+                    <div class="card_top"><img src="./photo/fhotocard/35/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Квартира</div>
+                        <div class="t2">Москва</div>
+                        <div class="t3"><div class="span sum">9 550 000</div><span class="p_kup">₽</span></div>
+                    </div>
+                </div>
+                <div class="card card_main" id="id_mosc" data-photos="./photo/fhotocard/36/1.webp,./photo/fhotocard/36/2.webp,./photo/fhotocard/36/3.webp,./photo/fhotocard/36/4.webp">
+                    <div class="card_top"><img src="./photo/fhotocard/36/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Квартира</div>
+                        <div class="t2">Москва</div>
+                        <div class="t3"><span class="sum">9 990 000</span><span class="p_kup">₽</span></div>
+                    </div>
+                </div>
+                <div class="card card_main" id="id_mosc" data-photos="./photo/fhotocard/37/1.webp,./photo/fhotocard/37/2.webp,./photo/fhotocard/37/3.webp,./photo/fhotocard/37/4.webp">
+                    <div class="card_top"><img src="./photo/fhotocard/37/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Квартира</div>
+                        <div class="t2">Москва</div>
+                        <div class="t3"><span class="sum">17 500 000</span><span class="p_kup"> ₽</span></div>
+                    </div>
+                </div>
+                <div class="card card_main" id="id_mosc" data-photos="./photo/fhotocard/38/1.webp,./photo/fhotocard/38/2.webp,./photo/fhotocard/38/3.webp,./photo/fhotocard/38/4.webp">
+                    <div class="card_top"><img src="./photo/fhotocard/38/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Квартира</div>
+                        <div class="t2">Москва</div>
+                        <div class="t3"><span class="sum">57 750</span><span class="p_snat">₽/мес.</span></div>
+                    </div>
+                </div>
+                <div class="card card_main" id="id_mosc" data-photos="./photo/fhotocard/39/1.webp,./photo/fhotocard/39/2.webp,./photo/fhotocard/39/3.webp,./photo/fhotocard/39/4.webp">
+                    <div class="card_top"><img src="./photo/fhotocard/39/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Квартира</div>
+                        <div class="t2">Москва</div>
+                        <div class="t3"><span class="sum">210 000</span><span class="p_snat">₽/мес.</span></div>
+                    </div>
+                </div>
+                <div class="card card_main" id="id_mosc" data-photos="./photo/fhotocard/40/1.webp,./photo/fhotocard/40/2.webp,./photo/fhotocard/40/3.webp,./photo/fhotocard/40/4.webp">
+                    <div class="card_top"><img src="./photo/fhotocard/40/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Квартира</div>
+                        <div class="t2">Москва</div>
+                        <div class="t3"><span class="sum">157 500</span><span class="p_snat">₽/мес.</span></div>
+                    </div>
+                </div>
+                <div class="card card_main" id="id_mosc" data-photos="./photo/fhotocard/41/1.webp,./photo/fhotocard/41/2.webp,./photo/fhotocard/41/3.webp,./photo/fhotocard/41/4.webp">
+                    <div class="card_top"><img src="./photo/fhotocard/41/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Студия</div>
+                        <div class="t2">Москва</div>
+                        <div class="t3"><span class="sum">11 000 000</span><span class="p_kup">₽</span></div>
+                    </div>
+                </div>
+                <div class="card card_main" id="id_mosc" data-photos="./photo/fhotocard/42/1.webp,./photo/fhotocard/42/2.webp,./photo/fhotocard/42/3.webp,./photo/fhotocard/42/4.webp">
+                    <div class="card_top"><img src="./photo/fhotocard/42/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Студия</div>
+                        <div class="t2">Москва</div>
+                        <div class="t3"><span class="sum">20 500 000</span><span class="p_kup">₽</span></div>
+                    </div>
+                </div>
+                <div class="card card_main" id="id_mosc" data-photos="./photo/fhotocard/43/1.webp,./photo/fhotocard/43/2.webp,./photo/fhotocard/43/3.webp,./photo/fhotocard/43/4.webp">
+                    <div class="card_top"><img src="./photo/fhotocard/43/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Студия</div>
+                        <div class="t2">Москва</div>
+                        <div class="t3"><span class="sum">17 500 000</span><span class="p_kup"> ₽</span></div>
+                    </div>
+                </div>
+                <div class="card card_main" id="id_mosc" data-photos="./photo/fhotocard/44/1.webp,./photo/fhotocard/44/2.webp,./photo/fhotocard/44/3.webp,./photo/fhotocard/44/4.webp">
+                    <div class="card_top"><img src="./photo/fhotocard/44/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Студия</div>
+                        <div class="t2">Москва</div>
+                        <div class="t3"><span class="sum">13 900 000</span><span class="p_kup">₽</span></div>
+                    </div>
+                </div>
+                <div class="card card_main" id="id_kras" data-photos="./photo/fhotocard/45/1.webp,./photo/fhotocard/45/2.webp,./photo/fhotocard/45/3.webp,./photo/fhotocard/45/4.webp">
+                    <div class="card_top"><img src="./photo/fhotocard/45/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Студия</div>
+                        <div class="t2">Краснодар</div>
+                        <div class="t3"><span class="sum">2 730 000 </span><span class="p_kup">₽</span></div>
+                    </div>
+                </div>
+                <div class="card card_main" id="id_kras" data-photos="./photo/fhotocard/46/1.webp,./photo/fhotocard/46/2.webp,./photo/fhotocard/46/3.webp,./photo/fhotocard/46/4.webp">
+                    <div class="card_top"><img src="./photo/fhotocard/46/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Студия</div>
+                        <div class="t2">Краснодар</div>
+                        <div class="t3"><span class="sum">3 500 000</span> <span class="p_kup">₽</span></div>
+                    </div>
+                </div>
+                <div class="card card_main" id="id_kras" data-photos="./photo/fhotocard/47/1.webp,./photo/fhotocard/47/2.webp,./photo/fhotocard/47/3.webp,./photo/fhotocard/47/4.webp">
+                    <div class="card_top"><img src="./photo/fhotocard/47/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Студия</div>
+                        <div class="t2">Краснодар</div>
+                        <div class="t3"><span class="sum">2 000 000</span><span class="p_kup">₽</span></div>
+                    </div>
+                </div>
+                <div class="card card_main" id="id_kras" data-photos="./photo/fhotocard/48/1.webp,./photo/fhotocard/48/2.webp,./photo/fhotocard/48/3.webp,./photo/fhotocard/48/4.webp">
+                    <div class="card_top"><img src="./photo/fhotocard/48/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Студия</div>
+                        <div class="t2">Краснодар</div>
+                        <div class="t3"><span class="sum">3 400 000</span><span class="p_kup">₽</span></div>
+                    </div>
+                </div>
+                <div class="card" id="id_kras" data-photos="./photo/fhotocard/1/1.webp,./photo/fhotocard/1/2.webp,./photo/fhotocard/1/3.webp,./photo/fhotocard/1/4.webp">
+                    <div class="card_top card_kup"><img src="./photo/fhotocard/1/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Квартира</div>
+                        <div class="t2">Краснодар</div>
+                        <div class="t3"><span class="sum">5 700 000</span><span class="p_kup">₽</span></div>
+                    </div>
+                </div>
+                <div class="card" id="id_kras" data-photos="./photo/fhotocard/2/1.webp,./photo/fhotocard/2/2.webp,./photo/fhotocard/2/3.webp,./photo/fhotocard/2/4.webp">
+                    <div class="card_top card_kup"><img src="./photo/fhotocard/2/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Квартира</div>
+                        <div class="t2">Краснодар</div>
+                        <div class="t3"><span class="sum">6 990 000</span><span class="p_kup">₽</span></div>
+                    </div>
+                </div>
+                <div class="card" id="id_kras" data-photos="./photo/fhotocard/7/1.webp,./photo/fhotocard/7/2.webp,./photo/fhotocard/7/3.webp,./photo/fhotocard/7/4.webp">
+                    <div class="card_top card_kup"><img src="./photo/fhotocard/7/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Квартира</div>
+                        <div class="t2">Краснодар</div>
+                        <div class="t3"><span class="sum">13 900 000</span><span class="p_kup">₽</span></div>
+                    </div>
+                </div>
+                <div class="card" id="id_kras" data-photos="./photo/fhotocard/8/1.webp,./photo/fhotocard/8/2.webp,./photo/fhotocard/8/3.webp,./photo/fhotocard/8/4.webp">
+                    <div class="card_top card_kup"><img src="./photo/fhotocard/8/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Квартира</div>
+                        <div class="t2">Краснодар</div>
+                        <div class="t3"><span class="sum">4 730 000</span><span class="p_kup">₽</span></div>
+                    </div>
+                </div>
+                <div class="card" id="id_kras" data-photos="./photo/fhotocard/9/1.webp,./photo/fhotocard/9/2.webp,./photo/fhotocard/9/3.webp,./photo/fhotocard/9/4.webp">
+                    <div class="card_top card_kup"><img src="./photo/fhotocard/9/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Квартира</div>
+                        <div class="t2">Краснодар</div>
+                        <div class="t3"><span class="sum">6 000 000</span><span class="p_kup">₽</span></div>
+                    </div>
+                </div>
+                <div class="card" id="id_kras" data-photos="./photo/fhotocard/10/1.webp,./photo/fhotocard/10/2.webp,./photo/fhotocard/10/3.webp,./photo/fhotocard/10/4.webp">
+                    <div class="card_top card_kup"><img src="./photo/fhotocard/10/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Квартира</div>
+                        <div class="t2">Краснодар</div>
+                        <div class="t3"><span class="sum">3 730 000</span><span class="p_kup">₽</span></div>
+                    </div>
+                </div>
+                <div class="card" id="id_kras" data-photos="./photo/fhotocard/11/1.webp,./photo/fhotocard/11/2.webp,./photo/fhotocard/11/3.webp,./photo/fhotocard/11/4.webp">
+                    <div class="card_top card_kup"><img src="./photo/fhotocard/11/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Квартира</div>
+                        <div class="t2">Краснодар</div>
+                        <div class="t3"><span class="sum">4 730 000</span><span class="p_kup">₽</span></div>
+                    </div>
+                </div>
+                <div class="card" id="id_kras" data-photos="./photo/fhotocard/12/1.webp,./photo/fhotocard/12/2.webp,./photo/fhotocard/12/3.webp,./photo/fhotocard/12/4.webp">
+                    <div class="card_top card_kup"><img src="./photo/fhotocard/12/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Квартира</div>
+                        <div class="t2">Краснодар</div>
+                        <div class="t3"><span class="sum">4 700 000</span><span class="p_kup">₽</span></div>
+                    </div>
+                </div>
+                <div class="card" id="id_kras" data-photos="./photo/fhotocard/3/1.webp,./photo/fhotocard/3/2.webp,./photo/fhotocard/3/3.webp,./photo/fhotocard/3/4.webp">
+                    <div class="card_top card_kup"><img src="./photo/fhotocard/3/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Квартира</div>
+                        <div class="t2">Краснодар</div>
+                        <div class="t3"><spam class="sum">32 000</spam><span class="p_snat">₽/мес.</span></div>
+                    </div>
+                </div>
+                <div class="card" id="id_kras" data-photos="./photo/fhotocard/4/1.webp,./photo/fhotocard/4/2.webp,./photo/fhotocard/4/3.webp,./photo/fhotocard/4/4.webp">
+                    <div class="card_top card_kup"><img src="./photo/fhotocard/4/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Квартира</div>
+                        <div class="t2">Краснодар</div>
+                        <div class="t3"><span class="sum">29 000</span><span class="p_snat">₽/мес.</span></div>
+                    </div>
+                </div>
+                <div class="card" id="id_kras" data-photos="./photo/fhotocard/5/1.webp,./photo/fhotocard/5/2.webp,./photo/fhotocard/5/3.webp,./photo/fhotocard/5/4.webp">
+                    <div class="card_top card_kup"><img src="./photo/fhotocard/5/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Квартира</div>
+                        <div class="t2">Краснодар</div>
+                        <div class="t3"><span class="sum">60 000</span><span class="p_snat">₽/мес.</span></div>
+                    </div>
+                </div>
+                <div class="card" id="id_kras" data-photos="./photo/fhotocard/6/1.webp,./photo/fhotocard/6/2.webp,./photo/fhotocard/6/3.webp,./photo/fhotocard/6/4.webp">
+                    <div class="card_top card_kup"><img src="./photo/fhotocard/6/1.webp" class="like"></div>
+                    <div class="card_bot">
+                        <div class="t1">Квартира</div>
+                        <div class="t2">Краснодар</div>
+                        <div class="t3"><span class="sum">33 000</span><span class="p_snat">₽/мес.</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer_top">
+            <div class="footer_top_content">
+                <div class="vizitka">
+                    <div class="vizitka_image"><img src="./photo/logo.png" class="foot_logo"></div>
+                    <div class="vizitka_text">
+                            <span class="zag">ПИПН - ваш эксперт в недвижимости.</span>
+                            Профессиональное сопровождение сделок любой сложности. 
+                            Работаем на результат с гарантией юридической чистоты.
+                    </div>
+                </div>
+                <div class="zero"></div>
+                <div class="services">
+                    <h4>Услуги</h4>
+                    <ul>
+                        <li><a href="poisk.html" onclick="kup_but(); if(window.location.pathname.indexOf('poisk.html')!==-1) return false;">Покупка</a></li>
+                        <li><a href="poisk.html" onclick="snat_but(); if(window.location.pathname.indexOf('poisk.html')!==-1) return false;">Аренда</a></li>
+                        <li><a href="poisk.html" onclick="kvar_but(); if(window.location.pathname.indexOf('poisk.html')!==-1) return false;">Квартира</a></li>
+                        <li><a href="poisk.html" onclick="stud_but(); if(window.location.pathname.indexOf('poisk.html')!==-1) return false;">Студия</a></li>
+                    </ul>
+                </div>
+                <div class="zero"></div>
+                <div class="contacts">
+                    <h4>Контакты</h4>
+                    <p>📞 8 (800) 123-45-67</p>
+                    <p>📧 pipn@mail.ru</p>
+                    <p>📍 ул. Лесная, 42, офис 12</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer_bot">
+            <div class="footer_bot_content">
+                <div>
+                    <p>&copy; 2025 Курсовая работа. Все права защищены.</p>
+                    <div class="soc">
+                        <img src="./photo/vk.png" class="foot_image">
+                        <img src="./photo/tg.png" class="foot_image">
+                        <img src="./photo/watsap.png" class="foot_image">
+                        <img src="./photo/odnoklassniki.png" class="foot_image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="poisk.js"></script>
+</html>

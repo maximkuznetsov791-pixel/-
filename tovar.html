@@ -1,0 +1,163 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Курсовая</title>
+    <link rel="stylesheet" href="tovar.css">
+</head>
+<body>
+    <header>
+        <div class="b_0"></div>
+        <div class="b_1"></div>
+        <div class="head_top">
+            <div class="head_top-left">
+                <div class="menu"><img src="./photo/menu.png" class="img_menu" onclick="togglemenu(true)"></div>
+                <div id="darkfon" class="darkfon" onclick="togglemenu(false)"></div>
+                <div id="menu" class="panel">
+                    <span class="close_but" onclick="togglemenu(false)">&times;</span>
+                    <a href="poisk.html" onclick="kup_but(); if(window.location.pathname.indexOf('poisk.html')!==-1) return false;">Покупка</a>
+                    <a href="poisk.html" onclick="snat_but(); if(window.location.pathname.indexOf('poisk.html')!==-1) return false;">Аренда</a>
+                    <a href="poisk.html" onclick="kvar_but(); if(window.location.pathname.indexOf('poisk.html')!==-1) return false;">Квартиры</a>
+                    <a href="poisk.html" onclick="stud_but(); if(window.location.pathname.indexOf('poisk.html')!==-1) return false;">Студии</a>
+                </div>
+                <div class="head_top_logo"><a href="index.html"><img src="./photo/logo.png" class="fotologo"></a></div>
+                <div class="box box_city" onclick="city_but()">
+                    <div class="img"><img src="./photo/geo.png" class="fotocity"></div>
+                    <div class="p p_city">
+                        <span class="span_city">Город</span>
+                    </div>
+                    <div class="city_group">
+                        <div class="kras" onclick="kras()">Краснодар</div>
+                        <div class="mosc" onclick="mosc()">Москва</div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="img"><img src="./photo/help.png" class="fotohelp"></div>
+                    <div class="p"><a href="help.html">Помощь</a></div>
+                </div>
+            </div>
+            <div class="umn"></div>
+            <div class="head_top-right">
+                <div class="login" onclick="login1()">
+                    <div class="logout">
+                        <img src="./photo/exit.png" class="fotologout">
+                        <span class="logout_span">Войти</span>
+                        <span class="login_login" onclick="lk()"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="account">
+                    <div class="account_login">
+                        <div class="login_head">
+                            <h2 class="h_login">Вход</h2>
+                            <div>
+                                <button class="ru_but" onclick="ru()">Ru</button>
+                                <button class="eu_but" onclick="eu()">Eu</button>
+                            </div>
+                        </div>
+                        <input type="text" placeholder="Логин" class="log_input_login">
+                        <input type="password" placeholder="Пароль" class="log_input_pass">
+                        <div class="log-reg">
+                            <button class="but_vxod" onclick="login()">Войти</button>
+                            <a href="" class="log-reg_registr"  onclick="reg(); return false;">зарегестрироваться</a>
+                        </div>
+                    </div>
+                    <div class="account_registr">
+                        <div class="reg_head">
+                            <h2 class="h_reg">Регистрация</h2>
+                            <div>
+                                <button class="ru_but" onclick="ru()">Ru</button>
+                                <button class="eu_but" onclick="eu()">Eu</button>
+                            </div>
+                        </div>
+                        <input type="text" placeholder="Создайте логин" class="reg_input_login">
+                        <input type="password" placeholder="Придумайте пароль" class="reg_input_pass">
+                        <input type="text" placeholder="Введите номер телефона" class="reg_input_phone">
+                        <input type="email" name="" id="" placeholder="Введите почту" class="reg_input_email">
+                        <div class="log-reg">
+                            <button class="but_reg" onclick="registr()">Зарегестрироваться</button>
+                            <a href="" class="log-reg_login"  onclick="log(); return false;">есть аккаунт? Войти</a>
+                        </div>
+                    </div>
+                </div>
+        <div class="head_bot">
+            <div class="logo"><a href="index.html"><img src="./photo/logo.png" class="fotologo"></a></div>
+            <div class="speed">
+                <div class="buy"><a href="poisk.html" onclick="kup_but(); if(window.location.pathname.indexOf('poisk.html')!==-1) return false;">Покупка</a></div>
+                <div class="arenda"><a href="poisk.html" onclick="snat_but(); if(window.location.pathname.indexOf('poisk.html')!==-1) return false;">Аренда</a></div>
+                <div class="new"><a href="poisk.html" onclick="kvar_but(); if(window.location.pathname.indexOf('poisk.html')!==-1) return false;">Квартиры</a></div>
+                <div class="new"><a href="poisk.html" onclick="stud_but(); if(window.location.pathname.indexOf('poisk.html')!==-1) return false;">Студии</a></div>
+            </div>
+        </div>
+        <div class="b_3"></div>
+        <div class="b_4"></div>
+    </header>
+    <main>
+        <div class="product">
+            <div class="product_img">
+                <div class="nazad"  onclick="nazad()">&#10094;</div>
+                <img src="" class="main_img" alt="">
+                <button class="back_but" onclick="back_but()">← Назад</button>
+                <div class="vpered" onclick="vpered()">&#10095;</div>
+            </div>
+            <div class="dots_container" id="dots"></div>
+            <div class="product_info">
+                <p class="info_h">Загрузка...</p>
+                <p class="city_p">Город</p>
+                <div class="price">0 ₽</div>
+                <div class="opis">
+                    <p class="opis_h">Описание</p>
+                    <p class="opis_p">Уютное жилье со всеми удобствами. Отличное расположение и развитая инфраструктура.</p>
+                </div>
+                <button class="call_but" onclick="call_but()">Показать телефон</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer_top">
+            <div class="footer_top_content">
+                <div class="vizitka">
+                    <div class="vizitka_image"><img src="./photo/logo.png" class="foot_logo"></div>
+                    <div class="vizitka_text">
+                            <span class="zag">ПИПН - ваш эксперт в недвижимости.</span>
+                            Профессиональное сопровождение сделок любой сложности. 
+                            Работаем на результат с гарантией юридической чистоты.
+                    </div>
+                </div>
+                <div class="zero"></div>
+                <div class="services">
+                    <h4>Услуги</h4>
+                    <ul>
+                        <li><a href="poisk.html" onclick="kup_but(); if(window.location.pathname.indexOf('poisk.html')!==-1) return false;">Покупка</a></li>
+                        <li><a href="poisk.html" onclick="snat_but(); if(window.location.pathname.indexOf('poisk.html')!==-1) return false;">Аренда</a></li>
+                        <li><a href="poisk.html" onclick="kvar_but(); if(window.location.pathname.indexOf('poisk.html')!==-1) return false;">Квартира</a></li>
+                        <li><a href="poisk.html" onclick="stud_but(); if(window.location.pathname.indexOf('poisk.html')!==-1) return false;">Студия</a></li>
+                    </ul>
+                </div>
+                <div class="zero"></div>
+                <div class="contacts">
+                    <h4>Контакты</h4>
+                    <p>📞 8 (800) 123-45-67</p>
+                    <p>📧 pipn@mail.ru</p>
+                    <p>📍 ул. Лесная, 42, офис 12</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer_bot">
+            <div class="footer_bot_content">
+                <div>
+                    <p>&copy; 2025 Курсовая работа. Все права защищены.</p>
+                    <div class="soc">
+                        <img src="./photo/vk.png" class="foot_image">
+                        <img src="./photo/tg.png" class="foot_image">
+                        <img src="./photo/watsap.png" class="foot_image">
+                        <img src="./photo/odnoklassniki.png" class="foot_image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="tovar.js"></script>
+</html>
